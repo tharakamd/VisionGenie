@@ -26,3 +26,6 @@ class PipeLine(AbstractPipeLine):
         global outputGeneratorList
         outputGeneratorList.append(outputGenerator)
 
+    def executePipeLine(self):
+        return
+
