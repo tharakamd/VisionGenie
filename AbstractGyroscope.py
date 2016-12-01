@@ -6,3 +6,9 @@ class AbstractGyroscope(AbstractSensor):
     @abstractmethod
     def getCurrentVelocity(self):
         return
+    @abstractmethod
+    def setStartPosition(self):
+        return
+    @abstractmethod
+    def getDistanceFromCurrentPosition(self):
+        return
