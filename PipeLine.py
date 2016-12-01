@@ -2,9 +2,10 @@ from AbstractPipeLine import AbstractPipeLine
 
 class PipeLine(AbstractPipeLine):
 
-    preProcessorList = []
+    preProcessorList = list()
     imageProcessorList = []
     outputGeneratorList = []
+    camera = None
 
     def initPipeLine(self):
         global preProcessorList
@@ -16,7 +17,7 @@ class PipeLine(AbstractPipeLine):
 
     def addPreProcessor(self,preprocessor):
         global preProcessorList
-        preProcessorList.append(preprocessor)
+        self.preProcessorList.append(preprocessor)
 
     def addImageProcessor(self,imageProcessor):
         global imageProcessorList
@@ -26,6 +27,14 @@ class PipeLine(AbstractPipeLine):
         global outputGeneratorList
         outputGeneratorList.append(outputGenerator)
 
+    def addCamera(self,cam):
+        global camera
+        camera = cam
+
     def executePipeLine(self):
-        return
+        global preProcessorList
+        global camera
+        for preProcessor in self.preProcessorList:
+            camera.register(preProcessor)
+        camera.start()
 
