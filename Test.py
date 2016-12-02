@@ -1,3 +1,5 @@
 from Gyroscope import Gyroscope
-gyro = Gyroscope()
-print gyro.getCurrentVelocity()
+from WebCamera import WebCamera
+from Core import Core
+
+cor = Core()

@@ -1,7 +1,8 @@
-
+import numpy as np
+import cv2
 from AbstractImageProcessor import AbstractImageProcessor
 
 class BinacularVisionImageProcessor(AbstractImageProcessor):
 
-    def getDistanceToObject(self):
-        return 
+    def update(self,frame):
+        cv2.imshow('frame',frame)
