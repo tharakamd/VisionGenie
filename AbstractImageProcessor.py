@@ -5,6 +5,8 @@ class AbstractImageProcessor(AbstractAlgo):
 
     __metaclass__ = ABCMeta
 
+
+
     @abstractmethod
     def getDistanceToOnject(self):
         return

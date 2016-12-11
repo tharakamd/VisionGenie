@@ -1,8 +1,10 @@
 from AbstractGyroscope import AbstractGyroscope
 
 class Gyroscope(AbstractGyroscope):
+    velocity =0;
     current_position = 0;
-    def getCurrentVelocity(self):
+    def getCurrentVelocity(self,reading):
+        self.velocity = reading;
         return 2
 
     def setStartPosition(self):
