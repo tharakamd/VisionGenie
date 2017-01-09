@@ -3,8 +3,8 @@ from AbstractSensor import AbstractSensor
 
 class AbstractPreProcessor(AbstractSensor):
     __metaclass__ = ABCMeta
-    image1 = null;
-    image2 = null;
+    image1 ="";
+    image2 = "";
     @abstractmethod
     def update(self,frame):
         return
