@@ -52,7 +52,7 @@ class DrawMatchFile:
             cv2.line(out, (int(x1),int(y1)), (int(x2)+cols1,int(y2)), (255, 0, 0), 1)
 
 
-        print distance_list
+        # print distance_list
         # Show the image
         cv2.imshow('Matched Features', out)
         cv2.waitKey(0)

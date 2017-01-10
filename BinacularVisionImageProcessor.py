@@ -10,7 +10,8 @@ from AbstractPreProcessor import AbstractPreProcessor
 class BinacularVisionImageProcessor():
 
     def __init__(self):
-        print self.getMatchedDetails()
+        # print self.getMatchedDetails()
+        self.calculateDistance(self.getMatchedDetails())
 
 
     def getMatchedDetails(self):
@@ -52,9 +53,9 @@ class BinacularVisionImageProcessor():
     def calculateDistance(self, dist_list):
 
         gyroscope = Gyroscope;
-        velocity = gyroscope.velocity;
+        # velocity = gyroscope.velocity;
 
-
+        print dist_list
 
 
         return ;
