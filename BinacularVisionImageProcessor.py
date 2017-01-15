@@ -58,6 +58,13 @@ class BinacularVisionImageProcessor():
         time_period = 1         #this can be vary with the frame difference
 
         print output_array
+        image_valocity = output_array[0]/time_period
+        actual_velocity = 0.5       # this is to be read by gyroscope
+        image_distance = output_array[1]
+
+        actual_distance = (actual_velocity/image_valocity)*image_distance
+
+        print actual_distance
 
         return ;
 

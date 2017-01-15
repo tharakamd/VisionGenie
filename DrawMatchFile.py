@@ -19,6 +19,7 @@ class DrawMatchFile:
         # Place the next image to the right of it
         out[:rows2,cols1:] = np.dstack([img2, img2, img2])
 
+        distance_diff_list =[];
         distance_list =[];
 
         # For each pair of points we have between both images
@@ -35,7 +36,9 @@ class DrawMatchFile:
             (x2,y2) = kp2[img2_idx].pt
 
             print (y2-y1)
-            distance_list.append(y2-y1)
+            distance_list.append(y1)
+            distance_diff_list.append(y2-y1)
+
             # print (x2,y2)
             print "----"
 
@@ -58,6 +61,13 @@ class DrawMatchFile:
         cv2.waitKey(0)
         cv2.destroyWindow('Matched Features')
 
+        avg_diff = np.mean(distance_diff_list)         #get the average of the moved distances
+        avg_dist =  np.mean(distance_list)              #get the average of original distance
+
+        output_array =[avg_diff,avg_dist]
+        
+
+
         # Also return the image if you'd like a copy
-        return distance_list
+        return output_array
 
