@@ -50,13 +50,14 @@ class BinacularVisionImageProcessor():
         # cv2.destroyWindow('Matched Features')
         return dist_list
 
-    def calculateDistance(self, dist_list):
+    def calculateDistance(self, output_array):
 
         gyroscope = Gyroscope;
         # velocity = gyroscope.velocity;
 
-        print dist_list
+        time_period = 1         #this can be vary with the frame difference
 
+        print output_array
 
         return ;
 
