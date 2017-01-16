@@ -39,8 +39,8 @@ class DrawMatchFile:
             distance_list.append(y1)
             distance_diff_list.append(y2-y1)
 
-            # print (x2,y2)
-            print "----"
+            # # print (x2,y2)
+            # print "----"
 
             # Draw a small circle at both co-ordinates
             # radius 4
@@ -58,8 +58,8 @@ class DrawMatchFile:
         # print distance_list
         # Show the image
         cv2.imshow('Matched Features', out)
-        cv2.waitKey(0)
-        cv2.destroyWindow('Matched Features')
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            cv2.destroyWindow('Matched Features')
 
         avg_diff = np.mean(distance_diff_list)         #get the average of the moved distances
         avg_dist =  np.mean(distance_list)              #get the average of original distance

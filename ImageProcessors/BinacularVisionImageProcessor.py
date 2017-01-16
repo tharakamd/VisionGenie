@@ -1,4 +1,5 @@
 import cv2
+import numpy
 
 from AbstractImageProcessor import AbstractImageProcessor
 from DrawMatchFile import DrawMatchFile
@@ -12,28 +13,27 @@ class BinacularVisionImageProcessor(AbstractImageProcessor):
     image1 = None # frame one
     image2 = None # frame two
 
-    frame_count = 0; # the frame number
+    frame_count = None; # the frame number
 
     def __init__(self):
         # print self.getMatchedDetails()
-        self.calculateDistance(self.getMatchedDetails())
         self.dmf = DrawMatchFile()
-        self.orb = cv2.ORB()
+        self.orb = cv2.ORB_create()
         self.bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
+        self.frame_count = 0
 
     def update(self, frame):
-        if(self.image1 == None & self.image2 == None):
+        if(self.image1 is None and self.image2 is None):
             self.image1 = self.image2 = frame
             self.frame_count = 0
         else:
             if(self.frame_count >=10): # frame replace should take place
-                self.image1 = self.image2.clone()
-                self.image2 = frame.clone()
+                numpy.copyto(self.image1, self.image2)
+                numpy.copyto(self.image2,frame)
                 self.frame_count = 0
-                self.getMatchedDetails(self.image1,self.image2)
-
+                self.calculateDistance(self.getMatchedDetails(self.image1,self.image2))
             else:
-                self.frame_count += self.frame_count
+                self.frame_count += 1
 
     def getMatchedDetails(self,img1,img2):
 
@@ -61,9 +61,7 @@ class BinacularVisionImageProcessor(AbstractImageProcessor):
         # get distance list frommatching points
         dist_list = dmf.drawMatches(img1,kp1,img2,kp2,matches[:10])
 
-        # cv2.imshow('Matched Features', img3)
-        # cv2.waitKey(0)
-        # cv2.destroyWindow('Matched Features')
+
         return dist_list
 
     def calculateDistance(self, output_array):
@@ -73,7 +71,7 @@ class BinacularVisionImageProcessor(AbstractImageProcessor):
 
         time_period = 1         #this can be vary with the frame difference
 
-        print output_array
+        # print output_array
         image_valocity = output_array[0]/time_period
         actual_velocity = 0.5       # this is to be read by gyroscope
         image_distance = output_array[1]
@@ -84,5 +82,5 @@ class BinacularVisionImageProcessor(AbstractImageProcessor):
 
         return ;
 
-x= BinacularVisionImageProcessor();
+
 
