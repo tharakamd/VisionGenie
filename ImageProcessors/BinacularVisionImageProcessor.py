@@ -1,9 +1,8 @@
 import cv2
-import numpy as np
 
-from DrawMatchFile import DrawMatchFile
 from AbstractImageProcessor import AbstractImageProcessor
-from Gyroscope import Gyroscope
+from DrawMatchFile import DrawMatchFile
+from Sensors.Gyroscope import Gyroscope
 
 class BinacularVisionImageProcessor(AbstractImageProcessor):
 

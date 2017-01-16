@@ -1,7 +1,9 @@
-from PipeLine import PipeLine
-from WebCamera import WebCamera
-from EdgeMatchObjectDetector import EdgeMatchObjectDetector
 from BinacularVisionImageProcessor import BinacularVisionImageProcessor
+from Cameras.WebCamera import WebCamera
+
+from ImageProcessors.EdgeMatchObjectDetector import EdgeMatchObjectDetector
+from PipeLine import PipeLine
+
 
 class Core:
 

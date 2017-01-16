@@ -1,5 +1,7 @@
 from abc import  ABCMeta, abstractmethod
-from AbstractAlgo import AbstractAlgo
+
+from ImageProcessors.AbstractAlgo import AbstractAlgo
+
 
 class AbstractOurputGenerator(AbstractAlgo):
 

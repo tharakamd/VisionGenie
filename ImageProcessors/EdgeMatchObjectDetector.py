@@ -1,6 +1,7 @@
-from AbstractPreProcessor import AbstractPreProcessor
-import numpy as np
 import cv2
+
+from PreProcessors.AbstractPreProcessor import AbstractPreProcessor
+
 
 class EdgeMatchObjectDetector(AbstractPreProcessor):
 

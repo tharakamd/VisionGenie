@@ -1,5 +1,7 @@
 from abc import  ABCMeta, abstractmethod
-from AbstractSensor import AbstractSensor
+
+from Sensors.AbstractSensor import AbstractSensor
+
 
 class AbstractGyroscope(AbstractSensor):
     __metaclass__ = ABCMeta

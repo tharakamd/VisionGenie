@@ -1,7 +1,8 @@
 # from abc import  ABCMeta, abstractmethod
-from AbstractCamera import AbstractCamera
-import numpy as np
 import cv2
+
+from Cameras.AbstractCamera import AbstractCamera
+
 
 class WebCamera(AbstractCamera):
 

@@ -1,7 +1,9 @@
-from abc import ABCMeta,abstractmethod
-from AbstractSensor import AbstractSensor
+from abc import  ABCMeta, abstractmethod
 
-class AbstractPreProcessor(AbstractSensor):
+from Sensors.AbstractSensor import AbstractSensor
+
+
+class AbstractCamera(AbstractSensor):
     __metaclass__ = ABCMeta
 
     def __init__(self):
@@ -20,5 +22,5 @@ class AbstractPreProcessor(AbstractSensor):
             observer.update(frame)
 
     @abstractmethod
-    def update(self,frame):
+    def start(self):
         return
