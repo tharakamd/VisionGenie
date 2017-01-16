@@ -1,17 +1,17 @@
 import cv2
-
 import numpy as np
 
 from DrawMatchFile import DrawMatchFile
 from AbstractImageProcessor import AbstractImageProcessor
 from Gyroscope import Gyroscope
-from AbstractPreProcessor import AbstractPreProcessor
 
-class BinacularVisionImageProcessor():
+class BinacularVisionImageProcessor(AbstractImageProcessor):
 
     def __init__(self):
         # print self.getMatchedDetails()
         self.calculateDistance(self.getMatchedDetails())
+
+    def update(self, frame):
 
 
     def getMatchedDetails(self):
