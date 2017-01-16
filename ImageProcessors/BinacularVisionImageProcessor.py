@@ -5,34 +5,51 @@ from DrawMatchFile import DrawMatchFile
 from Sensors.Gyroscope import Gyroscope
 
 class BinacularVisionImageProcessor(AbstractImageProcessor):
+    dmf = None
+    orb = None
+    bf = None
+
+    image1 = None # frame one
+    image2 = None # frame two
+
+    frame_count = 0; # the frame number
 
     def __init__(self):
         # print self.getMatchedDetails()
         self.calculateDistance(self.getMatchedDetails())
+        self.dmf = DrawMatchFile()
+        self.orb = cv2.ORB()
+        self.bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
 
     def update(self, frame):
+        if(self.image1 == None & self.image2 == None):
+            self.image1 = self.image2 = frame
+            self.frame_count = 0
+        else:
+            if(self.frame_count >=10): # frame replace should take place
+                self.image1 = self.image2.clone()
+                self.image2 = frame.clone()
+                self.frame_count = 0
+                self.getMatchedDetails(self.image1,self.image2)
 
+            else:
+                self.frame_count += self.frame_count
 
-    def getMatchedDetails(self):
-        dmf = DrawMatchFile()
+    def getMatchedDetails(self,img1,img2):
+
 
         # image1 = preprocess.image1;     #previous frame
         # image2 = preprocess.image2;     #current frame
 
-        image1 = cv2.imread('tennis.png')       #temporary image
-        image2 = cv2.imread('tenni.png')        #temporary image
-        img1 =  cv2.cvtColor(image1, cv2.COLOR_BGR2GRAY)
-        img2 =   cv2.cvtColor(image2, cv2.COLOR_BGR2GRAY)
-
-
-        orb = cv2.ORB()
+        orb = self.orb
+        dmf = self.dmf
 
         # find the keypoints and descriptors with SIFT
         kp1, des1 = orb.detectAndCompute(img1,None)
         kp2, des2 = orb.detectAndCompute(img2,None)
 
         # create BFMatcher object
-        bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
+        bf = self.bf
 
         # Match descriptors.
         matches = bf.match(des1,des2)
