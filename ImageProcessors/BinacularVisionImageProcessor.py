@@ -24,7 +24,10 @@ class BinacularVisionImageProcessor(AbstractImageProcessor):
 
     def update(self, frame):
         if(self.image1 is None and self.image2 is None):
-            self.image1 = self.image2 = frame
+            self.image1 = numpy.empty_like(frame)
+            self.image2 = numpy.empty_like(frame)
+            numpy.copyto(self.image1,frame)
+            numpy.copyto(self.image2,frame)
             self.frame_count = 0
         else:
             if(self.frame_count >=10): # frame replace should take place
