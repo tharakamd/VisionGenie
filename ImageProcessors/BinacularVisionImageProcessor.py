@@ -76,7 +76,7 @@ class BinacularVisionImageProcessor(AbstractImageProcessor):
         actual_velocity = 0.5       # this is to be read by gyroscope
         image_distance = output_array[1]
 
-        actual_distance = (actual_velocity/image_valocity)*image_distance
+        actual_distance = abs((actual_velocity/image_valocity)*image_distance)
 
         print actual_distance
 

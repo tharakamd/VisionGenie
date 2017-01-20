@@ -36,7 +36,7 @@ class DrawMatchFile:
             (x2,y2) = kp2[img2_idx].pt
 
             print (y2-y1)
-            distance_list.append(y1)
+            distance_list.append(y2)
             distance_diff_list.append(y2-y1)
 
             # # print (x2,y2)
@@ -61,11 +61,11 @@ class DrawMatchFile:
         if cv2.waitKey(1) & 0xFF == ord('q'):
             cv2.destroyWindow('Matched Features')
 
-        avg_diff = np.mean(distance_diff_list)         #get the average of the moved distances
-        avg_dist =  np.mean(distance_list)              #get the average of original distance
+        avg_diff = np.amin(distance_diff_list)         #get the average of the moved distances
+        avg_dist =  np.amin(distance_list)              #get the average of original distance
 
         output_array =[avg_diff,avg_dist]
-        
+
 
 
         # Also return the image if you'd like a copy
