@@ -35,7 +35,7 @@ class DrawMatchFile:
             (x1,y1) = kp1[img1_idx].pt
             (x2,y2) = kp2[img2_idx].pt
 
-            print (y2-y1)
+            # print (y2-y1)
             distance_list.append(y2)
             distance_diff_list.append(y2-y1)
 
