@@ -57,9 +57,9 @@ class DrawMatchFile:
 
         # print distance_list
         # Show the image
-        cv2.imshow('Matched Features', out)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            cv2.destroyWindow('Matched Features')
+        # cv2.imshow('Matched Features', out)
+        # if cv2.waitKey(1) & 0xFF == ord('q'):
+        #     cv2.destroyWindow('Matched Features')
 
         avg_diff = np.amin(distance_diff_list)         #get the average of the moved distances
         avg_dist =  np.amin(distance_list)              #get the average of original distance
