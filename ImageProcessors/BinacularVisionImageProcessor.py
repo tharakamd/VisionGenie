@@ -4,6 +4,7 @@ import numpy
 from AbstractImageProcessor import AbstractImageProcessor
 from DrawMatchFile import DrawMatchFile
 from Sensors.Gyroscope import Gyroscope
+from Sound.SoundGenerator import SoundGenerator
 
 class BinacularVisionImageProcessor(AbstractImageProcessor):
     dmf = None
@@ -21,6 +22,7 @@ class BinacularVisionImageProcessor(AbstractImageProcessor):
         self.orb = cv2.ORB_create()
         self.bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
         self.frame_count = 0
+        self.soundGen = SoundGenerator()
 
     def update(self, frame):
         if(self.image1 is None and self.image2 is None):
@@ -82,6 +84,8 @@ class BinacularVisionImageProcessor(AbstractImageProcessor):
         actual_distance = abs((actual_velocity/image_valocity)*image_distance)
 
         print actual_distance
+        if(actual_distance > 0 and actual_distance < 100):
+            self.soundGen.updateDistance(actual_distance)
 
         return ;
 
