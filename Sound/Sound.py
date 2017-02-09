@@ -31,7 +31,7 @@ print BITRATE
 stream = p.open(format = p.get_format_from_width(1),
                 channels = 1,
                 rate = BITRATE,
-		        output_device_index = 2,
+		output_device_index = 2,
                 output = True)
 
 stream.write(WAVEDATA)
