@@ -1,5 +1,6 @@
 from ImageProcessors.BinacularVisionImageProcessor import BinacularVisionImageProcessor
 from Cameras.PiCam import PiCam
+from Cameras.WebCamera import WebCamera
 from PreProcessors.GBRtoGRAYpreProcessor import  GBRtoGRAYpreProcessor
 from PipeLine import PipeLine
 
@@ -8,7 +9,7 @@ class Core:
 
     # creating instances
     pre = GBRtoGRAYpreProcessor()
-    cam = PiCam()
+    cam = WebCamera()
     imagePro = BinacularVisionImageProcessor()
     pipeline = PipeLine()
 

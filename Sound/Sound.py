@@ -6,10 +6,10 @@ import pyaudio
 PyAudio = pyaudio.PyAudio
 
 #See http://en.wikipedia.org/wiki/Bit_rate#Audio
-BITRATE = 16000 #number of frames per second/frameset.
+BITRATE = 44100 #number of frames per second/frameset.
 
 FREQUENCY = 2000 #Hz, waves per second, 261.63=C4-note.
-LENGTH = 0.5 #seconds to play sound
+LENGTH = 0.1 #seconds to play sound
 
 if FREQUENCY > BITRATE:
     BITRATE = FREQUENCY+100
@@ -24,10 +24,14 @@ for x in xrange(NUMBEROFFRAMES):
 for x in xrange(RESTFRAMES):
  WAVEDATA = WAVEDATA+chr(128)
 
+
+
 p = PyAudio()
+print BITRATE
 stream = p.open(format = p.get_format_from_width(1),
                 channels = 1,
                 rate = BITRATE,
+		        output_device_index = 2,
                 output = True)
 
 stream.write(WAVEDATA)

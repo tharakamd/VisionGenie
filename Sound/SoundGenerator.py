@@ -5,12 +5,13 @@ class SoundGenerator:
 
 
     def __init__(self):
-        self.BITRATE = 16000 #number of frames per second/frameset.
-        self.LENGTH = 0.5  # seconds to play sound
+        self.BITRATE = 44100 #number of frames per second/frameset.
+        self.LENGTH = 0.1 # seconds to play sound
         PyAudio = pyaudio.PyAudio
         self.paudio = PyAudio()
         self.stream = self.paudio.open(format=self.paudio.get_format_from_width(1),
                         channels=1,
+                        output_device_index=2,
                         rate=self.BITRATE,
                         output=True)
 

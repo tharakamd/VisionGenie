@@ -1,10 +1,12 @@
 import cv2
 import numpy
+import logging
 
 from AbstractImageProcessor import AbstractImageProcessor
 from DrawMatchFile import DrawMatchFile
 from Sensors.Gyroscope import Gyroscope
 from Sound.SoundGenerator import SoundGenerator
+from Sensors.DistanceHelper import DistanceHelper
 
 class BinacularVisionImageProcessor(AbstractImageProcessor):
     dmf = None
@@ -17,12 +19,14 @@ class BinacularVisionImageProcessor(AbstractImageProcessor):
     frame_count = None; # the frame number
 
     def __init__(self):
+        logging.getLogger().setLevel(logging.INFO)
         # print self.getMatchedDetails()
         self.dmf = DrawMatchFile()
         self.orb = cv2.ORB_create()
         self.bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
         self.frame_count = 0
         self.soundGen = SoundGenerator()
+        self.distance_helper = DistanceHelper()
 
     def update(self, frame):
         if(self.image1 is None and self.image2 is None):
@@ -32,7 +36,7 @@ class BinacularVisionImageProcessor(AbstractImageProcessor):
             numpy.copyto(self.image2,frame)
             self.frame_count = 0
         else:
-            if(self.frame_count >=10): # frame replace should take place
+            if(self.frame_count >=2): # frame replace should take place
                 numpy.copyto(self.image1, self.image2)
                 numpy.copyto(self.image2,frame)
                 self.frame_count = 0
@@ -83,7 +87,8 @@ class BinacularVisionImageProcessor(AbstractImageProcessor):
 
         actual_distance = abs((actual_velocity/image_valocity)*image_distance)
 
-        print actual_distance
+
+        logging.info("Distance : " + str(actual_distance) + " Velocity : " + str(self.distance_helper.getCurrentVelocity()) )
         if(actual_distance > 0 and actual_distance < 100):
             self.soundGen.updateDistance(actual_distance)
 
