@@ -65,7 +65,7 @@ class DrawMatchFile:
         #     cv2.destroyWindow('Matched Features')
 
         avg_diff = np.amin(distance_diff_list)         #get the average of the moved distances
-        avg_dist =  np.amin(distance_list)              #get the average of original distance
+        avg_dist =  np.amin(distance_list)              #get the minimum of original distance to get the closest point
 
         output_array =[avg_diff,avg_dist]
 
