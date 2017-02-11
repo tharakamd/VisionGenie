@@ -18,6 +18,8 @@ class BinacularVisionImageProcessor(AbstractImageProcessor):
 
     frame_count = None; # the frame number
 
+    early_dist =[1]*2;
+
     def __init__(self):
         logging.getLogger().setLevel(logging.INFO)
         # print self.getMatchedDetails()
@@ -79,6 +81,18 @@ class BinacularVisionImageProcessor(AbstractImageProcessor):
         actual_velocity = 0.5       # this is to be read by gyroscope
         image_distance = output_array[1]
         actual_distance = int(min(abs((actual_velocity/image_valocity)*image_distance),99))+1 # +1 to avoid getting 0
+
+        early_dist_diff = abs(self.early_dist[0] - self.early_dist[1]) #get difference of early distances
+        new_dist_diff = actual_distance-self.early_dist[1]      #get difference of latest distances
+
+        if early_dist_diff == 0:
+            early_dist_diff = self.early_dist[1];
+
+        if(new_dist_diff> 10*early_dist_diff):
+            actual_distance = int((self.early_dist[1]+self.early_dist[0])/2);
+
+        self.early_dist[0]=self.early_dist[1];
+        self.early_dist[1]= actual_distance;
         logging.info("Distance : " + str(actual_distance) )
         self.soundGen.updateDistance(actual_distance)
 
