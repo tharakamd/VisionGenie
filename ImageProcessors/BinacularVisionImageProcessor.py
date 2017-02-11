@@ -46,6 +46,12 @@ class BinacularVisionImageProcessor(AbstractImageProcessor):
             else:
                 self.frame_count += 1
 
+    def cropImage(self,image):
+
+        height, width = image.shape[:2]
+        crop_img = image[0:height, width/5:4*(width/5)]
+        return crop_img;
+
     def getMatchedDetails(self,img1,img2):
 
 
@@ -55,9 +61,12 @@ class BinacularVisionImageProcessor(AbstractImageProcessor):
         orb = self.orb
         dmf = self.dmf
 
+        image1 = self.cropImage(img1)
+        image2 = self.cropImage(img2)
+
         # find the keypoints and descriptors with SIFT
-        kp1, des1 = orb.detectAndCompute(img1,None)
-        kp2, des2 = orb.detectAndCompute(img2,None)
+        kp1, des1 = orb.detectAndCompute(image1,None)
+        kp2, des2 = orb.detectAndCompute(image2,None)
 
         # create BFMatcher object
         bf = self.bf
