@@ -16,7 +16,7 @@ class SoundGenerator:
                         output=True)
 
     def updateDistance(self,new_distance):
-        frequency = (1/new_distance)*5000
+        frequency = (1.0/new_distance)*5000
         # the frequency would be in the range of 50 - 5000 Hz
         if frequency > self.BITRATE:
             bitrate = frequency + 100

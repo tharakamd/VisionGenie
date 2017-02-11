@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0a724133-4b13-405b-849b-27948797048e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cameras/PiCam.py" afterPath="$PROJECT_DIR$/Cameras/PiCam.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ImageProcessors/BinacularVisionImageProcessor.py" afterPath="$PROJECT_DIR$/ImageProcessors/BinacularVisionImageProcessor.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sensors/DistanceHelper.py" afterPath="$PROJECT_DIR$/Sensors/DistanceHelper.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sensors/Gyroscope.py" afterPath="$PROJECT_DIR$/Sensors/Gyroscope.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sound/Sound.py" afterPath="$PROJECT_DIR$/Sound/Sound.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sound/SoundGenerator.py" afterPath="$PROJECT_DIR$/Sound/SoundGenerator.py" />
     </list>
     <ignored path="VisionGenie.iws" />
@@ -30,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SoundGenerator.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SoundGenerator.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Sound/SoundGenerator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="61" lean-forward="false" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
+            <state relative-caret-position="340">
+              <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -42,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BinacularVisionImageProcessor.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BinacularVisionImageProcessor.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageProcessors/BinacularVisionImageProcessor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="783">
+              <caret line="80" column="89" lean-forward="false" selection-start-line="80" selection-start-column="89" selection-end-line="80" selection-end-column="89" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -606,7 +602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486631029159</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="sound range update">
+      <created>1486792271444</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1486792271444</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -616,7 +619,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26793557" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26793557" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -679,7 +682,8 @@
     <MESSAGE value="debug binacular vision algo" />
     <MESSAGE value="add gyro implementation" />
     <MESSAGE value="add sound implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="add sound implementation" />
+    <MESSAGE value="sound range update" />
+    <option name="LAST_COMMIT_MESSAGE" value="sound range update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1018,6 +1022,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="34" lean-forward="false" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1039,22 +1044,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Sound/SoundGenerator.py">
+    <entry file="file://$PROJECT_DIR$/ImageProcessors/BinacularVisionImageProcessor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="61" lean-forward="false" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
+        <state relative-caret-position="783">
+          <caret line="80" column="89" lean-forward="false" selection-start-line="80" selection-start-column="89" selection-end-line="80" selection-end-column="89" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ImageProcessors/BinacularVisionImageProcessor.py">
+    <entry file="file://$PROJECT_DIR$/Sound/SoundGenerator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="340">
+          <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
