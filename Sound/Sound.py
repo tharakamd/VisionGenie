@@ -1,7 +1,7 @@
 import math
 import pyaudio
 
-#sudo apt-get install python-pyaudio
+
 
 PyAudio = pyaudio.PyAudio
 

@@ -14,7 +14,7 @@ class PiCam(AbstractCamera):
         # initialize the camera and grab a reference to the raw camera capture
         camera = PiCamera()
         camera.resolution = (640, 480)
-        camera.framerate = 20
+        camera.framerate = 80
         rawCapture = PiRGBArray(camera, size=(640, 480))
         # allow the camera to warmup
         time.sleep(0.1)

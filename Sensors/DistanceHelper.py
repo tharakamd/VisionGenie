@@ -10,5 +10,5 @@ class DistanceHelper:
         current_speed = self.gyro.getCurrentVelocity();
         if(current_speed > self.MAX_SPEED): # error in speed, then give average speed
             return self.AVERAGE_SPEED
-        return current_speed
+        return current_speed - 0.1
 

@@ -74,25 +74,15 @@ class BinacularVisionImageProcessor(AbstractImageProcessor):
         return dist_list
 
     def calculateDistance(self, output_array):
-
-        gyroscope = Gyroscope;
-        # velocity = gyroscope.velocity;
-
         time_period = 1         #this can be vary with the frame difference
-
-        # print output_array
         image_valocity = output_array[0]/time_period
         actual_velocity = 0.5       # this is to be read by gyroscope
         image_distance = output_array[1]
-
-        actual_distance = abs((actual_velocity/image_valocity)*image_distance)
-
-
-        logging.info("Distance : " + str(actual_distance) + " Velocity : " + str(self.distance_helper.getCurrentVelocity()) )
-        if(actual_distance > 0 and actual_distance < 100):
-            self.soundGen.updateDistance(actual_distance)
-
-        return ;
+        actual_distance = int(abs((actual_velocity/image_valocity)*image_distance))+1 # +1 to avoid getting 0
+        if actual_distance > 100: # the value would be in 1 - 100 range
+            actual_distance = 100
+        logging.info("Distance : " + str(actual_distance) )
+        self.soundGen.updateDistance(actual_distance)
 
 
 
